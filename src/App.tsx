@@ -1,3 +1,7 @@
+import { Login } from "@/Page/Login/login.tsx"
+
 export function App() {
-  return <h1>Olá Mundo!</h1>;
+  return (
+    <Login/>
+  )
 }
