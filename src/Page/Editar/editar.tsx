@@ -2,11 +2,25 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import BackIMG from "@/assets/back.png"
+import { Separator } from "@/components/ui/separator"
+import LogoutIMG from "@/assets/logout.png"
 
 export function Editar() {
     return (
-      <div className="mt-20">  
-        <div className="flex flex-row mx-48 p-4">
+      <div className="mt-5">  
+        <div className="flex flex-row px-5 py-2">
+       <div className="flex flex-row">
+         <Button variant="outline">Estoque</Button>
+         <Button variant="outline">Relatório</Button>
+       </div>
+       <div className="flex flex-row ">
+         <img className="w-10 h-10" src={LogoutIMG} alt="ImagemLogout"/>
+       </div>
+       
+       </div>
+       <Separator/>
+        
+        <div className="flex flex-row mt-10 mx-48 p-4">
           <img className="w-6 h-6" src={BackIMG} alt="ImagemVoltar"/>
           <Button variant="link" className="align-text-top">Voltar</Button>
         </div>
