@@ -1,3 +1,7 @@
+import { Estoque } from "@/Page/Estoque/estoque.tsx"
+
 export function App() {
-  return <h1>Olá Mundo!</h1>;
+  return (
+    <Estoque/>
+  )
 }
