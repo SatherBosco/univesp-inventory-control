@@ -198,13 +198,12 @@ import LogoutIMG from "@/assets/logout.png"
        
        </div>
        <Separator/>
-       <div className="px-5 pt-10">
+       <div className="px-14 pt-10">
        <Button className="bg-slate-900 text-white">Adicionar produto</Button> 
        <Table className="w-full h-screen pt-16">
          <TableHeader>
            <TableRow>
              <TableHead className="w-72">Ação</TableHead>
-             <TableHead className="w-72"></TableHead>
              <TableHead className="w-72">Produto</TableHead>
              <TableHead className="w-72">Quantidade</TableHead>
              <TableHead className="w-72">Estoque mínimo</TableHead>
@@ -213,8 +212,7 @@ import LogoutIMG from "@/assets/logout.png"
          <TableBody>
            {produtos.map((produto) => (
              <TableRow key={produto.nome} className={produto.quantidade > produto.estoque_mínimo ? "bg-white" : "bg-red-100"}>
-               <TableCell className="w-72">{produto.ação1}</TableCell>
-               <TableCell className="w-72">{produto.ação2}</TableCell>
+               <TableCell className="w-72">{produto.ação1} <span className="separator">|</span> {produto.ação2}</TableCell>
                <TableCell className="w-72">{produto.nome}</TableCell>
                <TableCell className="w-72">{produto.quantidade}</TableCell>
                <TableCell className="w-72">{produto.estoque_mínimo}</TableCell>
