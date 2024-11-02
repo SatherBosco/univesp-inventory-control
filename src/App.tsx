@@ -1,7 +1,7 @@
-import { Estoque } from "@/Page/Estoque/estoque.tsx"
+import { movimentacao } from "@/Page/movimentacao/movimentacao"
 
 export function App() {
   return (
-    <Estoque/>
+    <movimentacao/>
   )
 }
