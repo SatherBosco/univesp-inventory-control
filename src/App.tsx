@@ -1,7 +1,7 @@
-import { movimentacao } from "@/Page/movimentacao/movimentacao"
+import { Movimentacao } from "@/Page/Movimentacao/Movimentacao"
 
 export function App() {
   return (
-    <movimentacao/>
+    <Movimentacao/>
   )
 }
