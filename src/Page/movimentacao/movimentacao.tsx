@@ -184,7 +184,7 @@ import LogoutIMG from "@/assets/logout.png"
 
   ]
    
-  export function movimentacao() {
+  export function Movimentacao() {
     return (
      <div className="w-auto h-screen m-10"> 
        <div className="flex flex-row px-5 py-2">
