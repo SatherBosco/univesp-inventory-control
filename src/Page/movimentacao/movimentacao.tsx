@@ -1,3 +1,7 @@
+import * as React from "react"
+import { Minus, Plus } from "lucide-react"
+//import { Bar, BarChart, ResponsiveContainer } from "recharts"//
+
 import {
     Table,
     TableBody,
@@ -35,6 +39,8 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import LogoutIMG from "@/assets/logout.png"
    
+  //const [goal, setGoal] = React.useState(10)
+
   const produtos = [
     {
       ação1: <Button variant="link">Movimentar</Button>,
@@ -272,14 +278,19 @@ import LogoutIMG from "@/assets/logout.png"
     </DrawerHeader>
       <div className="p-4 pb-0">
         <div className="flex items-center justify-center space-x-2">
-          <Button size="icon" className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white">
+          <Button 
+          size="icon" 
+          className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white" 
+          variant="outline"
+          //onClick={() => (-1)}
+          >-
             <span className="sr-only">Decrease</span>
           </Button>
           <div className="flex-1 text-center">
             <div className="text-7xl font-bold tracking-tighter"></div>
-            <div className="text-[0.70rem] uppercase text-muted-foreground">Valor do item</div>
+            <div className="text-[0.70rem] uppercase text-muted-foreground">Quantidade do produto</div>
           </div>
-          <Button size="icon" className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white">
+          <Button size="icon" className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white" variant="outline">+
             <span className="sr-only">Increase</span>
           </Button>
         </div>
