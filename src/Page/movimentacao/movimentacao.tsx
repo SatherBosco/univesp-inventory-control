@@ -7,6 +7,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
+
 import {
   Pagination,
   PaginationContent,
@@ -16,6 +17,20 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+
+import {
+  Drawer,
+  DrawerPortal,
+  DrawerOverlay,
+  DrawerTrigger,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+} from "@/components/ui/drawer"
+
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import LogoutIMG from "@/assets/logout.png"
@@ -199,7 +214,7 @@ import LogoutIMG from "@/assets/logout.png"
        </div>
        <Separator/>
        <div className="px-14 pt-10">
-       <Button className="bg-slate-900 text-white">Adicionar produto</Button> 
+       <Button className="bg-slate-900 text-white">Editar</Button> 
        <Table className="w-full h-screen pt-16">
          <TableHeader>
            <TableRow>
@@ -244,6 +259,41 @@ import LogoutIMG from "@/assets/logout.png"
           </PaginationContent>
         </Pagination>
       </div>
+      
+  <Drawer>
+  <DrawerTrigger>
+    <Button variant="outline">Open</Button>
+  </DrawerTrigger>
+  <DrawerContent>
+  <div className="mx-auto w-full max-w-sm">
+    <DrawerHeader>
+      <DrawerTitle className="flex-1 text-center">Produto 1</DrawerTitle>
+      <DrawerDescription className="flex-1 text-center">Alterar estoque</DrawerDescription>
+    </DrawerHeader>
+      <div className="p-4 pb-0">
+        <div className="flex items-center justify-center space-x-2">
+          <Button size="icon" className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white">
+            <span className="sr-only">Decrease</span>
+          </Button>
+          <div className="flex-1 text-center">
+            <div className="text-7xl font-bold tracking-tighter"></div>
+            <div className="text-[0.70rem] uppercase text-muted-foreground">Valor do item</div>
+          </div>
+          <Button size="icon" className="h-8 w-8 shrink-0 rounded-full bg-slate-900 text-white">
+            <span className="sr-only">Increase</span>
+          </Button>
+        </div>
+      </div>
+    <DrawerFooter>
+      <Button className="bg-slate-900 text-white" variant="outline">Salvar</Button>
+        <DrawerClose>
+          <Button className="mx-auto w-full max-w-sm" variant="outline">Cancelar</Button>
+        </DrawerClose>
+    </DrawerFooter>
+  </div>
+  </DrawerContent>
+</Drawer>
+
      </div> 
     )
   }
