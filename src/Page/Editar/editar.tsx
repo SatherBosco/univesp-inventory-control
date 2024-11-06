@@ -3,21 +3,14 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import BackIMG from "@/assets/back.png"
 import { Separator } from "@/components/ui/separator"
-import LogoutIMG from "@/assets/logout.png"
+import { AppBar } from "../Componente/AppBar"
+
 
 export function Editar() {
     return (
       <div className="mt-1">  
-        <div className="flex flex-row px-5 py-2">
-          <div className="flex flex-row gap-1">
-            <Button variant="outline">Estoque</Button>
-            <Button variant="outline">Relatório</Button>
-          </div>
-          <div className="ml-auto ">
-            <img className="w-10 h-10" src={LogoutIMG} alt="ImagemLogout"/>
-          </div>
-       
-       </div>
+        <AppBar/>
+
        <Separator/>
         
         <div className="flex flex-row mt-5 mx-14 p-4">
