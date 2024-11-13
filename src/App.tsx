@@ -1,7 +1,7 @@
-import { Login } from "@/Page/Login/login.tsx"
+import { Movimentacao } from "@/Page/Movimentacao/Movimentacao"
 
 export function App() {
   return (
-    <Login/>
+    <Movimentacao/>
   )
 }
