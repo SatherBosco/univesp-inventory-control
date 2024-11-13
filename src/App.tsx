@@ -1,3 +1,7 @@
+import { Movimentacao } from "@/Page/Movimentacao/Movimentacao"
+
 export function App() {
-  return <h1>Olá Mundo!</h1>;
+  return (
+    <Movimentacao/>
+  )
 }
