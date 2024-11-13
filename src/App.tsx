@@ -1,7 +1,7 @@
-import { Editar } from "@/Page/Editar/editar.tsx"
+import { Movimentacao } from "@/Page/Movimentacao/Movimentacao"
 
 export function App() {
   return (
-    <Editar/>
+    <Movimentacao/>
   )
 }
