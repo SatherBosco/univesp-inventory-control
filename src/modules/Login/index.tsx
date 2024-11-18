@@ -35,6 +35,11 @@ export function LoginPage() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1500));
+    if (values.email !== "usuario@usuario.com" || values.password !== "12345678") {
+      alert("Usuário ou senha inválido");
+      setLoading(false);
+      return;
+    }
     setToken(values.password);
     navigate("/");
   };

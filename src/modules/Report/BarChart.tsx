@@ -48,7 +48,7 @@ export const BarChartComponent = () => {
     setActiveChart(value.toLowerCase() as keyof typeof chartConfig);
   };
 
-  const total = React.useMemo(
+  const total: { [key: string]: number } = React.useMemo(
     () => ({
       coxinha: chartData.reduce((acc, curr) => acc + curr.coxinha, 0),
       refrigerante: chartData.reduce((acc, curr) => acc + curr.refrigerante, 0),
