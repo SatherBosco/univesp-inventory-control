@@ -1,45 +1,43 @@
 import { useEffect, useState } from "react";
 import { PlusIcon, MinusIcon, Loader2 } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+// import {
+//   Pagination,
+//   PaginationContent,
+//   PaginationEllipsis,
+//   PaginationItem,
+//   PaginationLink,
+//   PaginationNext,
+//   PaginationPrevious,
+// } from "@/components/ui/pagination";
 import { Drawer, DrawerClose, DrawerContent, DrawerHeader, DrawerFooter, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
-import { Product, useProductsController } from "./hook/use-products-controller";
+import { Recipe, useProductsController } from "./hook/use-products-controller";
 import { useNavigate } from "react-router-dom";
 
-export function InventoryPage() {
-  const { products, productSelected, drawerOpen, openDrawer, closeDrawer, changeProductQuantity } = useProductsController();
+export function RecipePage() {
+  const { recipes, productSelected, drawerOpen, openDrawer, closeDrawer, changeProductQuantity } = useProductsController();
   const navigate = useNavigate();
 
   return (
     <div className="w-full p-10">
-      <Button variant="default" className="mb-3" onClick={() => navigate("/novo")}>
-        <PlusIcon /> Adicionar novo produto
+      <Button variant="default" className="mb-3" onClick={() => navigate("/receita/novo")}>
+        <PlusIcon /> Adicionar nova receita
       </Button>
 
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="text-center w-48">Ação</TableHead>
-            <TableHead className="text-center">Produto</TableHead>
-            <TableHead className="text-center">Unidade</TableHead>
-            <TableHead className="text-center">Quantidade</TableHead>
-            <TableHead className="text-center">Estoque mínimo</TableHead>
+            <TableHead className="text-center">Receita</TableHead>
+            <TableHead className="text-center">Produtos</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((product, index) => (
-            <TableRow key={index} className={product.quantity < product.minimumStock ? "bg-red-100 hover:bg-red-200" : ""}>
+          {recipes.map((product, index) => (
+            <TableRow key={index}>
               <TableCell className="text-center w-48 flex flex-row">
                 <Button variant="link" className="font-bold text-blue-600" onClick={() => openDrawer(index)}>
                   Movimentar
@@ -50,15 +48,17 @@ export function InventoryPage() {
                 </Button>
               </TableCell>
               <TableCell className="text-center">{product.name}</TableCell>
-              <TableCell className="text-center">{product.unitType}</TableCell>
-              <TableCell className="text-center">{product.quantity}</TableCell>
-              <TableCell className="text-center">{product.minimumStock}</TableCell>
+              <TableCell className="text-center">
+                {product.products
+                  .map((recipe) => `${recipe.product.name} (${recipe.quantity.toString().replace(".", ",")} ${recipe.product.unitType})`)
+                  .join(", ")}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
 
-      <div className="pt-5">
+      {/* <div className="pt-5">
         <Pagination>
           <PaginationContent>
             <PaginationItem>
@@ -83,7 +83,7 @@ export function InventoryPage() {
             </PaginationItem>
           </PaginationContent>
         </Pagination>
-      </div>
+      </div> */}
 
       <MovimentInventoryDrawer open={drawerOpen} product={productSelected} onChange={changeProductQuantity} closeDrawer={closeDrawer} />
     </div>
@@ -97,21 +97,21 @@ const MovimentInventoryDrawer = ({
   closeDrawer,
 }: {
   open: boolean;
-  product: Product;
-  onChange?: (product: Product) => void;
+  product: Recipe;
+  onChange?: (product: Recipe) => void;
   closeDrawer: () => void;
 }) => {
-  const [quantity, setQuantity] = useState(product.quantity);
+  const [quantity, setQuantity] = useState(0);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setQuantity(product.quantity);
+    setQuantity(0);
   }, [product]);
 
   const saveChanges = async () => {
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 800));
-    onChange?.({ ...product, quantity });
+    onChange?.({ ...product });
     setQuantity(0);
     setLoading(false);
   };
@@ -122,7 +122,7 @@ const MovimentInventoryDrawer = ({
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
             <DrawerTitle className="text-center text-2xl">{product.name}</DrawerTitle>
-            <DrawerDescription className="text-center">Alterar estoque</DrawerDescription>
+            <DrawerDescription className="text-center">Receitas feitas</DrawerDescription>
           </DrawerHeader>
           <div className="flex items-center justify-between p-4">
             <Button disabled={loading} size="icon" className="h-8 w-8 rounded-full" variant="default" onClick={() => setQuantity(quantity - 1)}>

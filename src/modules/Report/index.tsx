@@ -13,8 +13,8 @@ import { ptBR } from "date-fns/locale";
 
 export function ReportPage() {
   const [date, setDate] = useState<DateRange | undefined>({
-    from: new Date(2024, 10, 1),
-    to: new Date(2024, 10, 13),
+    from: new Date(2025, 4, 1),
+    to: new Date(2025, 4, 31),
   });
 
   return (

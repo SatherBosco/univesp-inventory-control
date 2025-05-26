@@ -33,6 +33,9 @@ export function NewProductPage() {
       <Label className="text-sm">Nome do produto</Label>
       <Input disabled={loading} type="name" placeholder="Nome do produto" className="mb-3" />
 
+      <Label className="text-sm">Unidade</Label>
+      <Input disabled={loading} type="text" placeholder="Kg, L, Unidade..." className="mb-3" />
+
       <Label className="text-sm">Quantidade em estoque</Label>
       <Input disabled={loading} type="number" placeholder="Quantidade em estoque" className="mb-3" />
 

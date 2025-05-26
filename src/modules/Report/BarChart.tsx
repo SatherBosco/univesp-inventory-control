@@ -8,27 +8,27 @@ import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { productsStartList } from "../Inventory/productsStartList";
 const chartData = [
-  { date: "2024-11-02", coxinha: 12, refrigerante: 10, cafe: 139 },
-  { date: "2024-11-03", coxinha: 25, refrigerante: 13, cafe: 980 },
-  { date: "2024-11-04", coxinha: 31, refrigerante: 5, cafe: 390 },
-  { date: "2024-11-05", coxinha: 12, refrigerante: 2, cafe: 480 },
-  { date: "2024-11-06", coxinha: 22, refrigerante: 15, cafe: 380 },
-  { date: "2024-11-07", coxinha: 34, refrigerante: 17, cafe: 430 },
-  { date: "2024-11-08", coxinha: 42, refrigerante: 51, cafe: 240 },
-  { date: "2024-11-09", coxinha: 5, refrigerante: 11, cafe: 430 },
-  { date: "2024-11-10", coxinha: 11, refrigerante: 23, cafe: 240 },
-  { date: "2024-11-11", coxinha: 17, refrigerante: 27, cafe: 240 },
-  { date: "2024-11-12", coxinha: 30, refrigerante: 21, cafe: 240 },
-  { date: "2024-11-13", coxinha: 28, refrigerante: 22, cafe: 240 },
-  { date: "2024-11-14", coxinha: 6, refrigerante: 17, cafe: 240 },
+  { date: "2025-05-02", arroz: 12, refrigerante: 10, cafe: 139 },
+  { date: "2025-05-03", arroz: 25, refrigerante: 13, cafe: 980 },
+  { date: "2025-05-04", arroz: 31, refrigerante: 5, cafe: 390 },
+  { date: "2025-05-05", arroz: 12, refrigerante: 2, cafe: 480 },
+  { date: "2025-05-06", arroz: 22, refrigerante: 15, cafe: 380 },
+  { date: "2025-05-07", arroz: 34, refrigerante: 17, cafe: 430 },
+  { date: "2025-05-08", arroz: 42, refrigerante: 51, cafe: 240 },
+  { date: "2025-05-09", arroz: 5, refrigerante: 11, cafe: 430 },
+  { date: "2025-05-10", arroz: 11, refrigerante: 23, cafe: 240 },
+  { date: "2025-05-11", arroz: 17, refrigerante: 27, cafe: 240 },
+  { date: "2025-05-12", arroz: 30, refrigerante: 21, cafe: 240 },
+  { date: "2025-05-13", arroz: 28, refrigerante: 22, cafe: 240 },
+  { date: "2025-05-14", arroz: 6, refrigerante: 17, cafe: 240 },
 ];
 
 const chartConfig = {
   views: {
     label: "Movimentação",
   },
-  coxinha: {
-    label: "Coxinha",
+  arroz: {
+    label: "Arroz",
     color: "hsl(var(--chart-2))",
   },
   refrigerante: {
@@ -42,7 +42,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export const BarChartComponent = () => {
-  const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("coxinha");
+  const [activeChart, setActiveChart] = React.useState<keyof typeof chartConfig>("arroz");
 
   const changeProduct = (value: string) => {
     setActiveChart(value.toLowerCase() as keyof typeof chartConfig);
@@ -50,7 +50,7 @@ export const BarChartComponent = () => {
 
   const total: { [key: string]: number } = React.useMemo(
     () => ({
-      coxinha: chartData.reduce((acc, curr) => acc + curr.coxinha, 0),
+      arroz: chartData.reduce((acc, curr) => acc + curr.arroz, 0),
       refrigerante: chartData.reduce((acc, curr) => acc + curr.refrigerante, 0),
       cafe: chartData.reduce((acc, curr) => acc + curr.cafe, 0),
     }),

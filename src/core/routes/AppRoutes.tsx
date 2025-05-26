@@ -10,6 +10,8 @@ import { EditProductPage } from "../../modules/EditProduct";
 import { ReportPage } from "../../modules/Report";
 import { NotFoundPage } from "../../modules/NotFound";
 import { useAuthProvider } from "../contexts/AuthProvider";
+import { RecipePage } from "@/modules/Recipe";
+import { NewRecipePage } from "@/modules/NewRecipe";
 
 export function AppRoutes() {
   const Private = ({ children }: { children: JSX.Element }) => {
@@ -47,6 +49,30 @@ export function AppRoutes() {
         />
         <Route
           path="/editar/:id"
+          element={
+            <Private>
+              <EditProductPage />
+            </Private>
+          }
+        />
+        <Route
+          path="/receita"
+          element={
+            <Private>
+              <RecipePage />
+            </Private>
+          }
+        />
+        <Route
+          path="/receita/novo"
+          element={
+            <Private>
+              <NewRecipePage />
+            </Private>
+          }
+        />
+        <Route
+          path="/receita/editar/:id"
           element={
             <Private>
               <EditProductPage />

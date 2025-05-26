@@ -4,7 +4,7 @@ import { LogOutIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export type MenuOptions = "Estoque" | "Relatorio";
+export type MenuOptions = "Estoque" | "Receita" | "Relatorio";
 
 export const AppBar = () => {
   const [itemActive, setItemActive] = useState<MenuOptions>("Estoque");
@@ -15,6 +15,8 @@ export const AppBar = () => {
   useEffect(() => {
     if (location.pathname.includes("relatorio")) {
       setItemActive("Relatorio");
+    } else if (location.pathname.includes("receita")) {
+      setItemActive("Receita");
     } else {
       setItemActive("Estoque");
     }
@@ -26,6 +28,11 @@ export const AppBar = () => {
         <Button variant={itemActive === "Estoque" ? "default" : "outline"} onClick={() => navigate("/")}>
           Estoque
         </Button>
+
+        <Button variant={itemActive === "Receita" ? "default" : "outline"} onClick={() => navigate("/receita")}>
+          Receita
+        </Button>
+
         <Button variant={itemActive === "Relatorio" ? "default" : "outline"} onClick={() => navigate("/relatorio")}>
           Relatório
         </Button>

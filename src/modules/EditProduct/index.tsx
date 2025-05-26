@@ -20,6 +20,9 @@ export function EditProductPage() {
       <Label className="text-sm">Nome do produto</Label>
       <Input value={product.name} type="name" placeholder="Nome do produto" className="mb-3" />
 
+      <Label className="text-sm">Unidade</Label>
+      <Input value={product.unitType} type="text" placeholder="Kg, L, Unidade..." className="mb-3" />
+
       <Label className="text-sm">Quantidade em estoque</Label>
       <Input value={product.quantity} type="number" placeholder="Quantidade em estoque" className="mb-3" />
 

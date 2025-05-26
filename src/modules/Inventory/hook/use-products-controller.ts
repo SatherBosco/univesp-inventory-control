@@ -3,13 +3,14 @@ import { productsStartList } from "../productsStartList";
 
 export type Product = {
   name: string;
+  unitType: string;
   quantity: number;
   minimumStock: number;
 };
 
 export const useProductsController = () => {
   const [products, setProducts] = useState<Product[]>(productsStartList);
-  const [productSelected, setProductSelected] = useState<Product>({ name: "", quantity: 0, minimumStock: 0 });
+  const [productSelected, setProductSelected] = useState<Product>({ name: "", quantity: 0, unitType: "", minimumStock: 0 });
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const openDrawer = (productIndex: number) => {
